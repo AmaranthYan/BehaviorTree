@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <memory>
 #include <vector>
 #include <unordered_map>
 #include "Observer.h"
@@ -39,7 +38,7 @@ namespace BTree
 			NotifyAll(key, false, {});
 		}
 
-		void RegisterObserver(std::shared_ptr<Observer<T>> observer)
+		void RegisterObserver(Observer<T>* observer)
 		{
 			observers.push_back(observer);
 			if (Has(observer->GetKey()))
@@ -48,7 +47,7 @@ namespace BTree
 			}
 		}
 
-		void UnregisterObserver(std::shared_ptr<Observer<T>> observer)
+		void UnregisterObserver(Observer<T>* observer)
 		{
 			auto it = std::find(observers.begin(), observers.end(), observer);
 			if (it != observers.end())
@@ -59,7 +58,7 @@ namespace BTree
 
 	private:
 		std::unordered_map<std::string, T> map;
-		std::vector<std::shared_ptr<Observer<T>>> observers;
+		std::vector<Observer<T>*> observers;
 
 		void NotifyAll(const std::string& key, bool is_set, const T& value)
 		{

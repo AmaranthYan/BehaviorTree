@@ -1,9 +1,11 @@
-//#include "BT.h"
+#include "BT.h"
 #include "Blackboard/Blackboard.h"
 
 int main()
 {
-	BTree::Blackboard bb;
+	std::shared_ptr<BTree::Blackboard> bb = std::make_shared<BTree::Blackboard>();
+
+	BTree::BlackboardCondition<bool> bcb(bb, "t", false);
 
 	return 0;
 }

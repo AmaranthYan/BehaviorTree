@@ -7,12 +7,12 @@ namespace BTree
 		return int_map;
 	}
 
-	void Blackboard::RegisterObserver(std::shared_ptr<Observer<int>> observer)
+	void Blackboard::RegisterObserver(Observer<int>* observer)
 	{
 		int_map.RegisterObserver(observer);
 	}
 
-	void Blackboard::UnregisterObserver(std::shared_ptr<Observer<int>> observer)
+	void Blackboard::UnregisterObserver(Observer<int>* observer)
 	{
 		int_map.UnregisterObserver(observer);
 	}
@@ -22,12 +22,12 @@ namespace BTree
 		return float_map;
 	}
 
-	void Blackboard::RegisterObserver(std::shared_ptr<Observer<float>> observer)
+	void Blackboard::RegisterObserver(Observer<float>* observer)
 	{
 		float_map.RegisterObserver(observer);
 	}
 
-	void Blackboard::UnregisterObserver(std::shared_ptr<Observer<float>> observer)
+	void Blackboard::UnregisterObserver(Observer<float>* observer)
 	{
 		float_map.UnregisterObserver(observer);
 	}
@@ -37,12 +37,12 @@ namespace BTree
 		return bool_map;
 	}
 
-	void Blackboard::RegisterObserver(std::shared_ptr<Observer<bool>> observer)
+	void Blackboard::RegisterObserver(Observer<bool>* observer)
 	{
 		bool_map.RegisterObserver(observer);
 	}
 
-	void Blackboard::UnregisterObserver(std::shared_ptr<Observer<bool>> observer)
+	void Blackboard::UnregisterObserver(Observer<bool>* observer)
 	{
 		bool_map.UnregisterObserver(observer);
 	}

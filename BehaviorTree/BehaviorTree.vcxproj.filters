@@ -17,9 +17,6 @@
     <ClCompile Include="Blackboard\Blackboard.cpp">
       <Filter>Blackboard\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Blackboard\Map.cpp">
-      <Filter>Blackboard\Source</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Blackboard">
