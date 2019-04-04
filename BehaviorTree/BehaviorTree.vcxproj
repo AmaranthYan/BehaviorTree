@@ -19,9 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Blackboard\Blackboard.h" />
+    <ClInclude Include="Blackboard\Map.h" />
+    <ClInclude Include="Blackboard\Observer.h" />
     <ClInclude Include="BT.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Blackboard\Blackboard.cpp" />
+    <ClCompile Include="Blackboard\Map.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

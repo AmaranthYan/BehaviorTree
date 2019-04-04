@@ -2,8 +2,34 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="BT.h" />
+    <ClInclude Include="Blackboard\Blackboard.h">
+      <Filter>Blackboard\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Blackboard\Observer.h">
+      <Filter>Blackboard\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Blackboard\Map.h">
+      <Filter>Blackboard\Include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Blackboard\Blackboard.cpp">
+      <Filter>Blackboard\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Blackboard\Map.cpp">
+      <Filter>Blackboard\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Blackboard">
+      <UniqueIdentifier>{2f900b94-539f-4f3d-a305-b7048e5ed2f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blackboard\Include">
+      <UniqueIdentifier>{1a7b8c68-35c3-4b4e-828d-0b844d9de933}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blackboard\Source">
+      <UniqueIdentifier>{c5049c70-d0d1-4e7a-8640-f6da16c295cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
