@@ -190,18 +190,7 @@ namespace BTree
 	{
 	public:
 		BlackboardCondition(std::shared_ptr<Blackboard> blackboard, const std::string& key, bool is_set)
-			: blackboard(blackboard), observer(std::make_unique<Observer<T>>(key)), set_condition(is_set)
-		{
-			blackboard->RegisterObserver(observer.get());
-		}
-
-		virtual ~BlackboardCondition()
-		{
-			if (!blackboard.expired())
-			{
-				blackboard.lock()->UnregisterObserver(observer.get());
-			}
-		}
+			: observer(std::make_unique<Observer<T>>(blackboard, key)), set_condition(is_set) {}
 
 		EState Run() override
 		{
@@ -213,7 +202,6 @@ namespace BTree
 		}
 
 	private:
-		std::weak_ptr<Blackboard> blackboard;
 		std::unique_ptr<Observer<T>> observer;
 		bool set_condition;
 	};
@@ -223,31 +211,11 @@ namespace BTree
 	{
 	public:
 		BlackboardComparator(std::shared_ptr<Blackboard> blackboard, const std::string& key_a, const std::string& key_b, bool is_equal)
-			: blackboard(blackboard), observer_a(std::make_unique<Observer<T>>(key_a)), observer_b(std::make_unique<Observer<T>>(key_b)), compared_value(), equal_condition(is_equal), compare_key(true)
-		{
-			blackboard->RegisterObserver(observer_a.get());
-			blackboard->RegisterObserver(observer_b.get());
-		}
+			: observer_a(std::make_unique<Observer<T>>(blackboard, key_a)), observer_b(std::make_unique<Observer<T>>(blackboard, key_b)), compared_value(), equal_condition(is_equal), compare_key(true) {}
 
 		BlackboardComparator(std::shared_ptr<Blackboard> blackboard, const std::string& key, const T& value, bool is_equal)
-			: blackboard(blackboard), observer_a(std::make_unique<Observer<T>>(key)), observer_b(), compared_value(value), equal_condition(is_equal), compare_key(false)
-		{
-			blackboard->RegisterObserver(observer_a.get());
-		}
-
-		virtual ~BlackboardComparator()
-		{
-			if (!blackboard.expired())
-			{
-				auto ptr = blackboard.lock();
-				ptr->UnregisterObserver(observer_a.get());
-				if (compare_key)
-				{
-					ptr->UnregisterObserver(observer_b.get());
-				}
-			}
-		}
-
+			: observer_a(std::make_unique<Observer<T>>(blackboard, key)), observer_b(), compared_value(value), equal_condition(is_equal), compare_key(false) {}
+		
 		EState Run() override
 		{
 			bool is_equal = observer_a->IsSet();
@@ -269,7 +237,6 @@ namespace BTree
 		}
 
 	private:
-		std::weak_ptr<Blackboard> blackboard;
 		std::unique_ptr<Observer<T>> observer_a;
 		std::unique_ptr<Observer<T>> observer_b;
 		T compared_value;

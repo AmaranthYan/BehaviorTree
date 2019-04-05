@@ -1,15 +1,31 @@
 #pragma once
 
+#include <memory>
 #include <string>
+#include "Blackboard.h"
 
 namespace BTree
-{
+{	
+	class Blackboard;
+
 	template <typename T>
 	class Observer
 	{
 	public:
-		Observer() : observed_key(), observed_value(), is_set(false) {}
-		Observer(const std::string& blackboard_key) : observed_key(blackboard_key), observed_value(), is_set(false) {}
+		Observer() : blackboard(), observed_key(), observed_value(), is_set(false) {}
+		Observer(std::shared_ptr<Blackboard> blackboard, const std::string& blackboard_key)
+			: blackboard(blackboard), observed_key(blackboard_key), observed_value(), is_set(false)
+		{
+			blackboard->RegisterObserver(this);
+		}
+
+		~Observer()
+		{
+			if (!blackboard.expired())
+			{
+				blackboard.lock()->UnregisterObserver(this);
+			}
+		}
 
 		const std::string& GetKey()
 		{
@@ -33,6 +49,7 @@ namespace BTree
 		}
 
 	private:
+		std::weak_ptr<Blackboard> blackboard;
 		std::string observed_key;
 		T observed_value;
 		bool is_set;
