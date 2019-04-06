@@ -11,11 +11,23 @@
     <ClInclude Include="Blackboard\Map.h">
       <Filter>Blackboard\Include</Filter>
     </ClInclude>
+    <ClInclude Include="Node\Node.h">
+      <Filter>Node</Filter>
+    </ClInclude>
+    <ClInclude Include="Node\Tree\BehaviorTree.h">
+      <Filter>Node\Tree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Blackboard\Blackboard.cpp">
       <Filter>Blackboard\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Node\Node.cpp">
+      <Filter>Node</Filter>
+    </ClCompile>
+    <ClCompile Include="Node\Tree\BehaviorTree.cpp">
+      <Filter>Node\Tree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -27,6 +39,12 @@
     </Filter>
     <Filter Include="Blackboard\Source">
       <UniqueIdentifier>{c5049c70-d0d1-4e7a-8640-f6da16c295cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node">
+      <UniqueIdentifier>{66a6db1a-8a0e-456e-9d9f-b1a1bf64629d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Tree">
+      <UniqueIdentifier>{67697921-afd7-43b9-93bd-4b0bc0bad6ee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

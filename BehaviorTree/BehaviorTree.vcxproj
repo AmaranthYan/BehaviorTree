@@ -23,10 +23,14 @@
     <ClInclude Include="Blackboard\Map.h" />
     <ClInclude Include="Blackboard\Observer.h" />
     <ClInclude Include="BT.h" />
+    <ClInclude Include="Node\Tree\BehaviorTree.h" />
+    <ClInclude Include="Node\Node.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Blackboard\Blackboard.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Node\Node.cpp" />
+    <ClCompile Include="Node\Tree\BehaviorTree.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -3,81 +3,11 @@
 #include <memory>
 #include <vector>
 #include <unordered_map>
-#include "Blackboard\Blackboard.h"
+#include "Blackboard/Blackboard.h"
+#include "Node/Node.h"
 
 namespace BTree
 {
-	class Node
-	{
-	public:
-		enum EState
-		{
-			Idle,
-			Running,
-			Success,
-			Failure
-		};
-
-		virtual ~Node() {}
-
-		EState Tick()
-		{
-			if (state != EState::Running)
-			{
-				Enter();
-			}
-
-			state = Run();
-
-			if (state != EState::Running)
-			{
-				Exit();
-			}
-
-			return state;
-		}
-
-		virtual EState Run() = 0;
-
-	protected:
-		virtual void Enter() {}
-		virtual void Exit() {}
-
-	private:
-		EState state;
-	};
-
-	class BehaviorTree : public Node
-	{
-	public:
-		BehaviorTree() 
-		{
-			blackboard = std::make_shared<Blackboard>();
-		}
-
-		void SetRoot(std::shared_ptr<Node> root)
-		{
-			this->root = root;
-		}
-
-		std::shared_ptr<Blackboard> GetBlackboard()
-		{
-			return blackboard;
-		}
-
-		EState Run() override
-		{
-			if (root)
-			{
-				return root->Tick();
-			}
-			return EState::Success;
-		}
-
-	private:
-		std::shared_ptr<Node> root;
-		std::shared_ptr<Blackboard> blackboard;
-	};
 
 	class Composite : public Node
 	{
@@ -183,6 +113,22 @@ namespace BTree
 	private:
 		int times;
 		int count;
+	};
+
+	class UntilSuccess : public Decorator
+	{
+	public:
+		EState Run() override
+		{
+			EState state = child->Tick();
+
+			if (state == EState::Success)
+			{
+				return EState::Success;
+			}
+
+			return EState::Running;
+		}
 	};
 
 	template <typename T>

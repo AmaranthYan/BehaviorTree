@@ -1,5 +1,6 @@
 #include "BT.h"
 #include "Blackboard/Blackboard.h"
+#include "Node/Tree/BehaviorTree.h"
 
 int main()
 {
