@@ -3,6 +3,7 @@
 namespace BTree
 {
 	BehaviorTree::BehaviorTree() : blackboard(std::make_shared<Blackboard>()) {}
+	BehaviorTree::BehaviorTree(std::shared_ptr<Blackboard> blackboard) : blackboard(blackboard) {}
 
 	void BehaviorTree::SetRoot(std::shared_ptr<Node> root)
 	{

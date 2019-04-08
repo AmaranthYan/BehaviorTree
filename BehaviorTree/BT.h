@@ -11,6 +11,12 @@ namespace BTree
 
 	class Composite : public Node
 	{
+	public:
+		void SetChild(std::shared_ptr<Node> child)
+		{
+			this->children.push_back(child);
+		}
+
 	protected:
 		std::vector<std::shared_ptr<Node>> children;
 		std::vector<std::shared_ptr<Node>>::iterator current;
@@ -86,6 +92,53 @@ namespace BTree
 
 			return EState::Failure;
 		}
+	};
+
+	class Parallel : public Composite
+	{
+	public:
+		Parallel(bool abort_on_fail) : abort_on_fail(abort_on_fail) {}
+
+		EState Run() override
+		{
+			int success_count = 0;
+			bool has_failed = false;
+
+			current = children.begin();
+			while (current != children.end())
+			{
+				EState state = (*current)->Tick();
+
+				if (state == EState::Success)
+				{
+					success_count++;
+				}
+				else if (state == EState::Failure)
+				{
+					has_failed = true;
+					if (abort_on_fail)
+					{
+						break;
+					}					
+				}
+
+				current++;
+			}
+
+			if (has_failed)
+			{
+				return EState::Failure;
+			}
+			else if (success_count == children.size())
+			{
+				return EState::Success;
+			}
+
+			return EState::Running;
+		}
+
+	private:
+		bool abort_on_fail;
 	};
 
 	class Loop : public Decorator

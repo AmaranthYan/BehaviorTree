@@ -10,6 +10,7 @@ namespace BTree
 	{
 	public:
 		BehaviorTree();
+		BehaviorTree(std::shared_ptr<Blackboard> blackboard); // create tree with an existing blackboard
 
 		void SetRoot(std::shared_ptr<Node> root);
 		std::shared_ptr<Blackboard> GetBlackboard();
