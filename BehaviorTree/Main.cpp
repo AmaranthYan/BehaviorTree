@@ -35,6 +35,7 @@ int main()
 	BTree::BlackboardCondition<bool> bcb(bb, "t", false);
 	BTree::BlackboardComparator<bool> bcc(bb, "t", true, false);
 
+	bb->Set<std::string>("10", "42");
 	
 	BTree::BehaviorTree bt;
 

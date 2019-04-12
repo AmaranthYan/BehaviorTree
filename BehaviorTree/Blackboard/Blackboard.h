@@ -8,17 +8,23 @@ namespace BTree
 	class Blackboard
 	{
 	public:
-		Map<int>& GetIntData();
-		void RegisterObserver(Observer<int>* observer);
-		void UnregisterObserver(Observer<int>* observer);
+		template<typename T>
+		void Set(const std::string& key, T value);
 
-		Map<float>& GetFloatData();
-		void RegisterObserver(Observer<float>* observer);
-		void UnregisterObserver(Observer<float>* observer);
+		template<typename T>
+		bool Get(const std::string& key, T& value);
 
-		Map<bool>& GetBoolData();
-		void RegisterObserver(Observer<bool>* observer);
-		void UnregisterObserver(Observer<bool>* observer);
+		template<typename T>
+		bool Has(const std::string& key);
+
+		template<typename T>
+		void Remove(const std::string& key);
+
+		template<typename T>
+		void RegisterObserver(Observer<T>* observer);
+
+		template<typename T>
+		void UnregisterObserver(Observer<T>* observer);
 
 	private:
 		Map<int> int_map;
