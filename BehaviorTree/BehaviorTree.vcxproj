@@ -22,13 +22,31 @@
     <ClInclude Include="Blackboard\Blackboard.h" />
     <ClInclude Include="Blackboard\Map.h" />
     <ClInclude Include="Blackboard\Observer.h" />
-    <ClInclude Include="BT.h" />
+    <ClInclude Include="Node\Action\Action.h" />
+    <ClInclude Include="Node\Composite\Composite.h" />
+    <ClInclude Include="Node\Composite\Parallel.h" />
+    <ClInclude Include="Node\Composite\Selector.h" />
+    <ClInclude Include="Node\Composite\Sequence.h" />
+    <ClInclude Include="Node\Decorator\BlackboardComparator.h" />
+    <ClInclude Include="Node\Decorator\BlackboardCondition.h" />
+    <ClInclude Include="Node\Decorator\Decorator.h" />
+    <ClInclude Include="Node\Decorator\Loop.h" />
+    <ClInclude Include="Node\Decorator\UntilFailure.h" />
+    <ClInclude Include="Node\Decorator\UntilSuccess.h" />
     <ClInclude Include="Node\Tree\BehaviorTree.h" />
     <ClInclude Include="Node\Node.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Blackboard\Blackboard.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Node\Composite\Composite.cpp" />
+    <ClCompile Include="Node\Composite\Parallel.cpp" />
+    <ClCompile Include="Node\Composite\Selector.cpp" />
+    <ClCompile Include="Node\Composite\Sequence.cpp" />
+    <ClCompile Include="Node\Decorator\Decorator.cpp" />
+    <ClCompile Include="Node\Decorator\Loop.cpp" />
+    <ClCompile Include="Node\Decorator\UntilFailure.cpp" />
+    <ClCompile Include="Node\Decorator\UntilSuccess.cpp" />
     <ClCompile Include="Node\Node.cpp" />
     <ClCompile Include="Node\Tree\BehaviorTree.cpp" />
   </ItemGroup>

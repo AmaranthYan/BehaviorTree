@@ -1,50 +1,109 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="BT.h" />
-    <ClInclude Include="Blackboard\Blackboard.h">
-      <Filter>Blackboard\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="Blackboard\Observer.h">
-      <Filter>Blackboard\Include</Filter>
-    </ClInclude>
-    <ClInclude Include="Blackboard\Map.h">
-      <Filter>Blackboard\Include</Filter>
-    </ClInclude>
     <ClInclude Include="Node\Node.h">
       <Filter>Node</Filter>
+    </ClInclude>
+    <ClInclude Include="Blackboard\Blackboard.h">
+      <Filter>Blackboard</Filter>
+    </ClInclude>
+    <ClInclude Include="Blackboard\Map.h">
+      <Filter>Blackboard</Filter>
+    </ClInclude>
+    <ClInclude Include="Blackboard\Observer.h">
+      <Filter>Blackboard</Filter>
+    </ClInclude>
+    <ClInclude Include="Node\Composite\Composite.h">
+      <Filter>Node\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="Node\Composite\Selector.h">
+      <Filter>Node\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="Node\Composite\Sequence.h">
+      <Filter>Node\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="Node\Action\Action.h">
+      <Filter>Node\Action</Filter>
     </ClInclude>
     <ClInclude Include="Node\Tree\BehaviorTree.h">
       <Filter>Node\Tree</Filter>
     </ClInclude>
+    <ClInclude Include="Node\Decorator\Decorator.h">
+      <Filter>Node\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="Node\Composite\Parallel.h">
+      <Filter>Node\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="Node\Decorator\BlackboardCondition.h">
+      <Filter>Node\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="Node\Decorator\BlackboardComparator.h">
+      <Filter>Node\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="Node\Decorator\UntilSuccess.h">
+      <Filter>Node\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="Node\Decorator\UntilFailure.h">
+      <Filter>Node\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="Node\Decorator\Loop.h">
+      <Filter>Node\Decorator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Blackboard\Blackboard.cpp">
-      <Filter>Blackboard\Source</Filter>
-    </ClCompile>
     <ClCompile Include="Node\Node.cpp">
       <Filter>Node</Filter>
     </ClCompile>
+    <ClCompile Include="Blackboard\Blackboard.cpp">
+      <Filter>Blackboard</Filter>
+    </ClCompile>
+    <ClCompile Include="Node\Composite\Sequence.cpp">
+      <Filter>Node\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="Node\Composite\Composite.cpp">
+      <Filter>Node\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="Node\Composite\Selector.cpp">
+      <Filter>Node\Composite</Filter>
+    </ClCompile>
     <ClCompile Include="Node\Tree\BehaviorTree.cpp">
       <Filter>Node\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="Node\Decorator\Decorator.cpp">
+      <Filter>Node\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="Node\Composite\Parallel.cpp">
+      <Filter>Node\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="Node\Decorator\UntilSuccess.cpp">
+      <Filter>Node\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="Node\Decorator\UntilFailure.cpp">
+      <Filter>Node\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="Node\Decorator\Loop.cpp">
+      <Filter>Node\Decorator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Blackboard">
       <UniqueIdentifier>{2f900b94-539f-4f3d-a305-b7048e5ed2f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Blackboard\Include">
-      <UniqueIdentifier>{1a7b8c68-35c3-4b4e-828d-0b844d9de933}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Blackboard\Source">
-      <UniqueIdentifier>{c5049c70-d0d1-4e7a-8640-f6da16c295cb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Node">
       <UniqueIdentifier>{66a6db1a-8a0e-456e-9d9f-b1a1bf64629d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Node\Tree">
       <UniqueIdentifier>{67697921-afd7-43b9-93bd-4b0bc0bad6ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Composite">
+      <UniqueIdentifier>{1cf30742-2f3b-401f-a251-388647d8cd10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Decorator">
+      <UniqueIdentifier>{562b1662-88f1-4cf4-b810-b838f8e4e167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Action">
+      <UniqueIdentifier>{f4b65fc5-e4d2-42c3-bc72-f06f0e6f9080}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

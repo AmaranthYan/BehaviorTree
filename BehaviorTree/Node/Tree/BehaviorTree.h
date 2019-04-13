@@ -1,8 +1,8 @@
 #pragma once
 
 #include <memory>
-#include "../../Blackboard/Blackboard.h"
 #include "../Node.h"
+#include "../../Blackboard/Blackboard.h"
 
 namespace BTree
 {

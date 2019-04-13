@@ -4,7 +4,7 @@ namespace BTree
 {
 	// int
 	template<>
-	void Blackboard::Set<int>(const std::string& key, int value)
+	void Blackboard::Set(const std::string& key, int value)
 	{
 		int_map.Set(key, value);
 	}
@@ -41,7 +41,7 @@ namespace BTree
 
 	// float
 	template<>
-	void Blackboard::Set<float>(const std::string& key, float value)
+	void Blackboard::Set(const std::string& key, float value)
 	{
 		float_map.Set(key, value);
 	}
@@ -78,7 +78,7 @@ namespace BTree
 
 	// bool
 	template<>
-	void Blackboard::Set<bool>(const std::string& key, bool value)
+	void Blackboard::Set(const std::string& key, bool value)
 	{
 		bool_map.Set(key, value);
 	}

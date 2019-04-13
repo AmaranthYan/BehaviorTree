@@ -22,6 +22,6 @@ namespace BTree
 			return root->Tick();
 		}
 
-		return EState::Success;
+		return Node::EState::Success;
 	}
 }
