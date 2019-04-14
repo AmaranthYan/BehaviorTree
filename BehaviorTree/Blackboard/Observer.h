@@ -6,8 +6,6 @@
 
 namespace BTree
 {	
-	class Blackboard;
-
 	template <typename T>
 	class Observer
 	{

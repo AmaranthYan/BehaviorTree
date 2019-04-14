@@ -2,6 +2,7 @@
 
 #include "Decorator.h"
 #include "../../Blackboard/Blackboard.h"
+#include "../../Blackboard/Observer.h"
 
 namespace BTree
 {
