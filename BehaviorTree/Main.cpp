@@ -1,4 +1,6 @@
 #include <iostream>
+#include <thread>
+#include <chrono>
 #include "Blackboard/Blackboard.h"
 #include "Node/Tree/BehaviorTree.h"
 #include "Node/Action/Action.h"
@@ -44,7 +46,13 @@ protected:
 	}
 };
 
+class Agent
+{
+	float position;
+};
+
 int CountInt::i = 0;
+std::chrono::nanoseconds delta_time = std::chrono::nanoseconds(16666667); // 16.666667 ms
 
 int main()
 {
@@ -75,9 +83,12 @@ int main()
 	paral->SetChild(c_a);
 	paral->SetChild(c_c);
 
-	while (bt.Tick() != BTree::Node::EState::Success)
+	while (true)
 	{
-
+		auto time = std::chrono::high_resolution_clock::now();		
+		if (bt.Tick() == BTree::Node::EState::Success)
+			break;
+		std::this_thread::sleep_for(delta_time - (std::chrono::high_resolution_clock::now() - time));
 	}
 
 	system("pause");
