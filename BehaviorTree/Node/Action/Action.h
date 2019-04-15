@@ -12,6 +12,8 @@ namespace BTree
 		Action() : blackboard() {}
 		Action(std::shared_ptr<Blackboard> blackboard) : blackboard(blackboard) {}
 
+		void SetBlackboard(std::shared_ptr<Blackboard> blackboard);
+
 		void Abort() override;
 
 	protected:
