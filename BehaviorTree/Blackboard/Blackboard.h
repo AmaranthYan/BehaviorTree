@@ -8,10 +8,6 @@ namespace BTree
 	template <typename T>
 	class Map;
 
-
-	/*template <>
-	class Map<bool>;*/
-
 	template <typename T>
 	class Observer;
 

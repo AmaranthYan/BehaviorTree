@@ -15,6 +15,8 @@ namespace BTree
 		void SetRoot(std::shared_ptr<Node> root);
 		std::shared_ptr<Blackboard> GetBlackboard();
 
+		void Abort() override;
+
 	protected:
 		EState Run() override;
 

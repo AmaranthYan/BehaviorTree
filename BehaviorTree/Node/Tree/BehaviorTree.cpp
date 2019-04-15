@@ -15,6 +15,16 @@ namespace BTree
 		return blackboard;
 	}
 
+	void BehaviorTree::Abort()
+	{
+		state = Node::EState::Idle;
+
+		if (root)
+		{
+			root->Abort();
+		}
+	}
+
 	Node::EState BehaviorTree::Run()
 	{
 		if (root)

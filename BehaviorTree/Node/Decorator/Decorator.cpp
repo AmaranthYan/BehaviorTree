@@ -6,4 +6,14 @@ namespace BTree
 	{
 		this->child = child;
 	}
+
+	void Decorator::Abort()
+	{
+		state = Node::EState::Idle;
+
+		if (child)
+		{
+			child->Abort();
+		}
+	}
 }

@@ -85,6 +85,9 @@
     <ClCompile Include="Node\Decorator\Loop.cpp">
       <Filter>Node\Decorator</Filter>
     </ClCompile>
+    <ClCompile Include="Node\Action\Action.cpp">
+      <Filter>Node\Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Blackboard">

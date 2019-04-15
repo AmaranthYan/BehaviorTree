@@ -17,14 +17,13 @@ namespace BTree
 		virtual ~Node() = default;
 
 		EState Tick();
+		virtual void Abort() = 0;
 
 	protected:
+		EState state;
+
 		virtual void Enter() {}
 		virtual void Exit() {}
-
 		virtual EState Run() = 0;
-
-	private:
-		EState state;
 	};
 }

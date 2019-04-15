@@ -16,6 +16,11 @@ namespace BTree
 		BlackboardComparator(std::shared_ptr<Blackboard> blackboard, const std::string& key, const T& value, bool is_equal)
 			: observer_a(std::make_unique<Observer<T>>(blackboard, key)), observer_b(), compared_value(value), equal_condition(is_equal), compare_key(false) {}
 
+		void SetAbortMode(bool abort)
+		{
+			this->abort_child = abort;
+		}
+
 	protected:
 		Node::EState Run() override
 		{
@@ -34,8 +39,15 @@ namespace BTree
 			{
 				return child->Tick();
 			}
+			else
+			{
+				if (abort_child)
+				{
+					child->Abort();
+				}
 
-			return Node::EState::Failure;
+				return Node::EState::Failure;
+			}
 		}
 
 	private:
@@ -44,5 +56,6 @@ namespace BTree
 		T compared_value;
 		bool equal_condition;
 		bool compare_key; // compare with Blackboard entry or with value
+		bool abort_child;
 	};
 }

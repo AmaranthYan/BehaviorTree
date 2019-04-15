@@ -39,6 +39,7 @@
   <ItemGroup>
     <ClCompile Include="Blackboard\Blackboard.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Node\Action\Action.cpp" />
     <ClCompile Include="Node\Composite\Composite.cpp" />
     <ClCompile Include="Node\Composite\Parallel.cpp" />
     <ClCompile Include="Node\Composite\Selector.cpp" />
