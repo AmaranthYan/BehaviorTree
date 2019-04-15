@@ -11,10 +11,10 @@ namespace BTree
 	{
 	public:
 		BlackboardComparator(std::shared_ptr<Blackboard> blackboard, const std::string& key_a, const std::string& key_b, bool is_equal)
-			: observer_a(std::make_unique<Observer<T>>(blackboard, key_a)), observer_b(std::make_unique<Observer<T>>(blackboard, key_b)), compared_value(), equal_condition(is_equal), compare_key(true) {}
+			: observer_a(std::make_unique<Observer<T>>(blackboard, key_a)), observer_b(std::make_unique<Observer<T>>(blackboard, key_b)), compared_value(), equal_condition(is_equal), compare_key(true), abort_child(false) {}
 
 		BlackboardComparator(std::shared_ptr<Blackboard> blackboard, const std::string& key, const T& value, bool is_equal)
-			: observer_a(std::make_unique<Observer<T>>(blackboard, key)), observer_b(), compared_value(value), equal_condition(is_equal), compare_key(false) {}
+			: observer_a(std::make_unique<Observer<T>>(blackboard, key)), observer_b(), compared_value(value), equal_condition(is_equal), compare_key(false), abort_child(false) {}
 
 		void SetAbortMode(bool abort)
 		{

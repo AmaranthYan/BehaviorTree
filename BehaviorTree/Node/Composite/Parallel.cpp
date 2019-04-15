@@ -19,7 +19,7 @@ namespace BTree
 			else if (state == Node::EState::Failure)
 			{
 				has_failed = true;
-				if (abort_on_fail)
+				if (stop_on_fail)
 				{
 					break;
 				}
