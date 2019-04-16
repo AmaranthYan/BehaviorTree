@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 #include "../Node/Tree/BehaviorTree.h"
 #include "../Node/Action/Action.h"
 #include "../Node/Composite/Selector.h"
@@ -106,24 +107,20 @@ private:
 	Agent* agent;
 };
 
-
-void CreateBehaviorTree()
+// agent object with speed 20 per sec at position 0 
+static Agent agent(0, 20);
+std::unique_ptr<BTree::BehaviorTree> CreateBehaviorTree1()
 {
-	Agent agent(0, 50);
-
-	std::shared_ptr<BTree::Blackboard> bb = std::make_shared<BTree::Blackboard>();
-
-	BTree::BehaviorTree bt(bb);
-
-	//auto paral = std::make_shared<BTree::Parallel>(true);
-	//bt.SetRoot(paral);
+	auto behavior_tree = std::make_unique<BTree::BehaviorTree>();
+	auto blackboard = behavior_tree->GetBlackboard();
 
 	auto selector = std::make_shared<BTree::Selector>();
-	bt.SetRoot(selector);
+	behavior_tree->SetRoot(selector);
 
-	auto blackboard_condition = std::make_shared<BTree::BlackboardCondition<bool>>(bb, "interrupt", false);
+	auto blackboard_condition = std::make_shared<BTree::BlackboardCondition<bool>>(blackboard, "interrupt", false);
 	blackboard_condition->SetAbortMode(true);
 	auto stay_idle = std::make_shared<StayIdle>(&agent);
+
 	selector->SetChild(blackboard_condition);
 	selector->SetChild(stay_idle);
 
@@ -131,10 +128,30 @@ void CreateBehaviorTree()
 	blackboard_condition->SetChild(sequence);
 
 	auto find_random_dest = std::make_shared<FindRandomDestination>(&agent, 50.f);
-	find_random_dest->SetBlackboard(bb);
+	find_random_dest->SetBlackboard(blackboard);
 	auto move_to = std::make_shared<MoveTo>(&agent);
-	move_to->SetBlackboard(bb);
+	move_to->SetBlackboard(blackboard);
 
 	sequence->SetChild(find_random_dest);
 	sequence->SetChild(move_to);
+
+	return behavior_tree;
+}
+
+void SimulatePlayerInteraction1(std::shared_ptr<BTree::Blackboard> blackboard)
+{
+	if (_kbhit())
+	{
+		if (_getch() == KEY_SPACE)
+		{
+			if (blackboard->Has<bool>("interrupt"))
+			{
+				blackboard->Remove<bool>("interrupt");
+			}
+			else
+			{
+				blackboard->Set<bool>("interrupt", true);
+			}
+		}
+	}
 }

@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Blackboard\Blackboard.cpp" />
+    <ClCompile Include="Example\Example1.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Node\Action\Action.cpp" />
     <ClCompile Include="Node\Composite\Composite.cpp" />

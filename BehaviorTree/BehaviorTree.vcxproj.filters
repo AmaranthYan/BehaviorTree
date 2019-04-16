@@ -88,6 +88,9 @@
     <ClCompile Include="Node\Action\Action.cpp">
       <Filter>Node\Action</Filter>
     </ClCompile>
+    <ClCompile Include="Example\Example1.cpp">
+      <Filter>Example</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Blackboard">
@@ -107,6 +110,9 @@
     </Filter>
     <Filter Include="Node\Action">
       <UniqueIdentifier>{f4b65fc5-e4d2-42c3-bc72-f06f0e6f9080}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Example">
+      <UniqueIdentifier>{4ec5aa28-8157-4ea0-b45a-33bf73059448}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
