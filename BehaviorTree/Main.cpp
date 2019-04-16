@@ -6,7 +6,7 @@
 #define KEY_SPACE 32
 
 extern std::unique_ptr<BTree::BehaviorTree> CreateBehaviorTree1();
-void SimulatePlayerInteraction1(std::shared_ptr<BTree::Blackboard> blackboard);
+extern void SimulatePlayerInteraction1(std::shared_ptr<BTree::Blackboard> blackboard);
 
 std::chrono::nanoseconds delta_time = std::chrono::nanoseconds(16666667); // 16.666667 ms
 
@@ -17,8 +17,7 @@ int main()
 	std::unique_ptr<BTree::BehaviorTree> behavior_tree;
 	behavior_tree = CreateBehaviorTree1();
 
-	std::shared_ptr<BTree::Blackboard> blackboard;
-	blackboard = behavior_tree->GetBlackboard();
+	std::shared_ptr<BTree::Blackboard> blackboard = behavior_tree->GetBlackboard();
 
 	while (true)
 	{
