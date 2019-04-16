@@ -42,5 +42,15 @@ Storage of key-value pairs with observers
 can support other built-in/custom data types
 ## Example
 An agent is roaming around in 1D space and can be interrupted by pressing the **SPACE** key  
+### Nodes Used
+#### Basic Nodes
++ BehaviorTree
++ Selector
++ BlackboardCondition
++ Sequence
+#### Custom Actions
++ FindRandomDestination
++ MoveTo
++ StayIdle  
   
 ![ExampleTreeGraph](https://github.com/AmaranthYan/BehaviorTree/blob/master/BehaviorTree/Example/Example_graph.png)
