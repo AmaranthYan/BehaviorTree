@@ -2,6 +2,7 @@
 
 BehaviorTree project in C++ that I wrote for fun xD
 ## Nodes
+Tree node types
 ### Tree
 + **BehaviorTree**
 ### Composite
