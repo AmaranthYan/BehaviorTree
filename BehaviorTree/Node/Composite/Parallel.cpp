@@ -2,6 +2,11 @@
 
 namespace BTree
 {
+	void Parallel::SetStopOnFail(bool stop_on_fail)
+	{
+		this->stop_on_fail = stop_on_fail;
+	}
+
 	Node::EState Parallel::Run()
 	{
 		int success_count = 0;
